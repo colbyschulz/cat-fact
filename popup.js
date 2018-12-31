@@ -19,11 +19,9 @@ document.addEventListener("DOMContentLoaded", () => {
   };
 
   const fetchFact = () => {
-    const fact = fetch(FACT_URL)
+    fetch(FACT_URL)
       .then(resp => resp.json())
-      .then(j => j);
-    console.log("FACT JSON", fact);
-    return fact;
+      .then(j => console.log(j));
   };
 
   const button = document.getElementById("button");
