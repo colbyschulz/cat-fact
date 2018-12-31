@@ -1,7 +1,7 @@
 document.addEventListener("DOMContentLoaded", () => {
   const START = "start";
   const STOP = "stop";
-  const FACT_URL = "https://catfact.ninja/fact";
+  const FACT_URL = "https://cat-fact-server.herokuapp.com/";
 
   let isFetching;
 
@@ -19,16 +19,11 @@ document.addEventListener("DOMContentLoaded", () => {
   };
 
   const fetchFact = () => {
-    const options = {
-      method: "GET",
-      mode: "no-cors",
-      headers: {
-        "Content-Type": "application/json",
-      }
-    };
-    // fetch(FACT_URL, options)
-    //   .then(resp => console.log(resp.json()))
-    //   .then(j => console.log(j));
+    const fact = fetch(FACT_URL)
+      .then(resp => resp.json())
+      .then(j => j);
+    console.log("FACT JSON", fact);
+    return fact;
   };
 
   const button = document.getElementById("button");
