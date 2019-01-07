@@ -13,7 +13,6 @@ document.addEventListener("DOMContentLoaded", () => {
   const tearDownInterval = () => clearInterval(factInterval);
 
   const handleOnClick = () => {
-    fetchFact();
     if (isFetching) {
       chrome.storage.sync.set({ isFetching: false });
       isFetching = false;
