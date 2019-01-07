@@ -1,7 +1,7 @@
 {
-  "name": "Getting Started Example",
+  "name": "Cat Fact",
   "version": "1.0",
-  "description": "Build an Extension!",
+  "description": "Fact delivery system",
   "permissions": ["storage"],
   "manifest_version": 2,
   "browser_action": {

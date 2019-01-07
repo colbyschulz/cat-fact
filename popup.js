@@ -4,16 +4,25 @@ document.addEventListener("DOMContentLoaded", () => {
   const FACT_URL = "https://cat-fact-server.herokuapp.com/";
 
   let isFetching;
+  let factInterval;
+
+  const initiateInterval = () => {
+    factInterval = setInterval(fetchFact, 5000);
+  };
+
+  const tearDownInterval = () => clearInterval(factInterval);
 
   const handleOnClick = () => {
     fetchFact();
     if (isFetching) {
       chrome.storage.sync.set({ isFetching: false });
       isFetching = false;
+      tearDownInterval();
       button.innerHTML = START;
     } else {
       chrome.storage.sync.set({ isFetching: true });
       isFetching = true;
+      initiateInterval();
       button.innerHTML = STOP;
     }
   };
